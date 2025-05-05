@@ -1,0 +1,50 @@
+for loop diye 
+import java.util.ArrayList;
+import java.util.Scanner;
+class DictionaryEntry {
+    String word;
+    String meaning;
+
+    DictionaryEntry(String word, String meaning){
+        this.word = word;
+        this.meaning = meaning;
+    }
+    public String toString() { 
+        return word + ": " + meaning;
+    }
+}
+
+public class DictionaryApp {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<DictionaryEntry>dictionary = new ArrayList<>();
+
+    System.out.println("Dictionary Entry Programm");
+    String choice;
+
+   for(;;){
+        System.out.println("Enter a word :");
+        String word = sc.nextLine();
+
+        System.out.println("Enter it is meaning :");
+        String meaning = sc.nextLine();
+
+        dictionary.add(new DictionaryEntry(word, meaning));
+        System.out.println(("Do you want to add another word? (yes/no):"));
+        choice = sc.nextLine().trim().toLowerCase();
+        if (choice.equals("no")){
+            break;
+        }
+        
+    }
+
+
+    System.out.println("\n Dictionary Contents");
+    for ( DictionaryEntry entry : dictionary) {
+        System.out.println(entry);
+    }
+    sc.close();
+
+
+    }
+}
